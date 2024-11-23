@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { Coffee } from '../types/cofee';
+import { Link } from 'expo-router';
 interface CoffeeCardProps {
   coffee: Coffee;
 }

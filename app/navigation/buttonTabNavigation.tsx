@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import HomeScreen from '../screens/homeScreen';
+import DetailScreen from '../screens/detailScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,6 +48,19 @@ export default function BottomTabNavigator() {
       <Tab.Screen
         name="Favorites"
         component={HomeScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Feather
+              name="heart"
+              color={color}
+              size={size || 24}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="details"
+        component={DetailScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Feather
