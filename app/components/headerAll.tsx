@@ -5,14 +5,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface DetailHeaderProps {
   onBack: () => void;
-  onToggleFavorite: () => void;
-  isFavorite: boolean;
+  onToggleFavorite?: () => void;
+  isFavorite?: boolean;
+  headerName?: string;
 }
 
 export default function DetailHeader({
   onBack,
   onToggleFavorite,
   isFavorite,
+  headerName,
 }: DetailHeaderProps) {
   const insets = useSafeAreaInsets();
 
@@ -28,16 +30,19 @@ export default function DetailHeader({
           color="#000"
         />
       </TouchableOpacity>
-      <Text style={styles.title}>Detail</Text>
+      <Text style={styles.title}>{headerName}</Text>
       <TouchableOpacity
         onPress={onToggleFavorite}
         style={styles.favoriteButton}
       >
-        <Feather
-          name={isFavorite ? 'heart' : 'heart'}
-          size={24}
-          color={isFavorite ? '#C68666' : '#000'}
-        />
+        {headerName === 'Detail' && (
+          <Feather
+            name={isFavorite ? 'heart' : 'heart'}
+            size={24}
+            color={isFavorite ? '#C68666' : '#000'}
+          />
+        )}{' '}
+        : null
       </TouchableOpacity>
     </View>
   );

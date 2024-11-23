@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Coffee } from '../types/cofee';
-import DetailHeader from '../components/header-detail';
+import DetailHeader from '../components/headerAll';
 import CoffeeDetails from '../components/coffe-detail';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -44,6 +44,7 @@ export default function DetailScreen() {
         onBack={handleBack}
         onToggleFavorite={handleToggleFavorite}
         isFavorite={isFavorite}
+        headerName={'Detail'}
       />
       <ScrollView>
         <View style={styles.content}>

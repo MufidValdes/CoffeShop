@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import HomeScreen from '../screens/homeScreen';
 import DetailScreen from '../screens/detailScreen';
+import { OrderScreen } from '../screens/orderScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -74,6 +75,19 @@ export default function BottomTabNavigator() {
       <Tab.Screen
         name="Cart"
         component={HomeScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Feather
+              name="shopping-bag"
+              color={color}
+              size={size || 24}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Order"
+        component={OrderScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Feather
