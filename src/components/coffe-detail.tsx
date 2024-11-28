@@ -10,6 +10,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { Coffee } from '../types/cofee';
+import { Link } from 'expo-router';
 
 const { width } = Dimensions.get('window');
 
@@ -137,12 +138,14 @@ export default function CoffeeDetails({
               {coffee.price.toFixed(2)}
             </Text>
           </View>
-          <TouchableOpacity
-            style={styles.buyButton}
-            onPress={onBuyNow}
-          >
-            <Text style={styles.buyButtonText}>Buy Now</Text>
-          </TouchableOpacity>
+          <Link href={'/detail'}>
+            <TouchableOpacity
+              style={styles.buyButton}
+              onPress={onBuyNow}
+            >
+              <Text style={styles.buyButtonText}>Buy Now</Text>
+            </TouchableOpacity>
+          </Link>
         </Animated.View>
       </View>
     </View>
