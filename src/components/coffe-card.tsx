@@ -9,7 +9,13 @@ interface CoffeeCardProps {
 
 export default function CoffeeCard({ coffee }: CoffeeCardProps) {
   return (
-    <View style={styles.container}>
+    <Link
+      href={{
+        pathname: '/detail', // Jalur dinamis
+        params: { id: coffee.id }, // Parameter rute
+      }}
+      style={styles.container}
+    >
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: coffee.image }}
@@ -37,7 +43,7 @@ export default function CoffeeCard({ coffee }: CoffeeCardProps) {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </Link>
   );
 }
 

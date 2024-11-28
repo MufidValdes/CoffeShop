@@ -60,19 +60,6 @@ export default function BottomTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="details"
-        component={DetailScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Feather
-              name="heart"
-              color={color}
-              size={size || 24}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Cart"
         component={HomeScreen}
         options={{
