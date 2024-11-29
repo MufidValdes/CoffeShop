@@ -8,8 +8,8 @@ export default function RootLayout() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="detail"
-        options={{ title: 'Details' }}
+        name="(app)"
+        options={{ headerShown: false }}
       />
 
       <Stack.Screen name="+not-found" />

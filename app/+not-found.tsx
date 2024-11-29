@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function NotFoundScreen() {
   return (
-    <>
+    <View>
       <Stack.Screen options={{ title: 'Not Found ' }} />
       <View style={styles.container}>
         <Link
@@ -15,7 +15,7 @@ export default function NotFoundScreen() {
           Go back Home Screen
         </Link>
       </View>
-    </>
+    </View>
   );
 }
 

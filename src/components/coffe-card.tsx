@@ -9,13 +9,7 @@ interface CoffeeCardProps {
 
 export default function CoffeeCard({ coffee }: CoffeeCardProps) {
   return (
-    <Link
-      href={{
-        pathname: '/detail', // Jalur dinamis
-        params: { id: coffee.id }, // Parameter rute
-      }}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: coffee.image }}
@@ -31,7 +25,14 @@ export default function CoffeeCard({ coffee }: CoffeeCardProps) {
         </View>
       </View>
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{coffee.name}</Text>
+        <Link
+          href={{
+            pathname: '/detail', // Jalur dinamis
+            params: { id: coffee.id }, // Parameter rute
+          }}
+        >
+          <Text style={styles.name}>{coffee.name}</Text>
+        </Link>
         <Text style={styles.type}>{coffee.type}</Text>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>
@@ -43,7 +44,7 @@ export default function CoffeeCard({ coffee }: CoffeeCardProps) {
           </TouchableOpacity>
         </View>
       </View>
-    </Link>
+    </View>
   );
 }
 

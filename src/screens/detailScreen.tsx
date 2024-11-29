@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Coffee } from '../types/cofee';
-import DetailHeader from '../components/headerAll';
-import CoffeeDetails from '../components/coffe-detail';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import CoffeeDetails from '../components/coffe-detail';
+import { Coffee } from '../types/cofee';
 
 const sampleCoffee: Coffee = {
   id: '1',
@@ -22,30 +22,16 @@ const sampleCoffee: Coffee = {
 };
 
 export default function DetailScreen() {
-  const navigation = useNavigation();
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const handleBack = () => {
-    navigation.goBack();
-  };
-
-  const handleToggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
-
+  const { id } = useLocalSearchParams();
+  const router = useRouter();
   const handleBuyNow = () => {
     // Handle buy now action
+    router.replace('/order');
     console.log('Buy now pressed');
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <DetailHeader
-        onBack={handleBack}
-        onToggleFavorite={handleToggleFavorite}
-        isFavorite={isFavorite}
-        headerName={'Detail'}
-      />
       <ScrollView>
         <View style={styles.content}>
           <CoffeeDetails

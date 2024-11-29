@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import OrderItem from '../components/order-items';
-import DeliveryToggle from '../components/delivery-toggle';
-import PaymentSummary from '../components/payment-summary';
 import AddressSection from '../components/address-section';
 import Button from '../components/button';
-import DetailHeader from '../components/headerAll';
+import DeliveryToggle from '../components/delivery-toggle';
+import OrderItem from '../components/order-items';
+import PaymentSummary from '../components/payment-summary';
 
 const sampleOrder = {
   item: {
@@ -46,10 +45,6 @@ export function OrderScreen() {
   return (
     <View style={[styles.container, { paddingBottom: insets.bottom }]}>
       <ScrollView>
-        <DetailHeader
-          onBack={handleBack}
-          headerName={'Order'}
-        />
         <View style={styles.content}>
           <DeliveryToggle
             isDelivery={isDelivery}

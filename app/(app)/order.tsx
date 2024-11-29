@@ -1,4 +1,4 @@
-import { OrderScreen } from '@/screens/orderScreen';
+import { OrderScreen } from '@/src/screens/orderScreen';
 import React from 'react';
 
 export default function OrderPage() {
